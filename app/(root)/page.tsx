@@ -18,7 +18,7 @@ export default function Home() {
         </div>
         <h2 className="2xl:text-4xl xl:text-4xl text-xl text-slate-400 font-bold my-5 2xl:w-[45vw] xl:w-[45vw] w-full text-center">Log in to access personalized tools and resources tailored to your business needs.</h2>
         <div className="flex justify-center">
-          <Button>Continue</Button>
+          <Button path="/login">Continue</Button>
         </div>
       </div>
     </div>  
