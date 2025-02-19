@@ -1,3 +1,4 @@
+// 'use client'
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { useRouter } from 'next/navigation'
