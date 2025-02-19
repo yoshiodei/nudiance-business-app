@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import RootNav from "./component/RootNav";
 import Footer from "../shared/components/Footer";
+import Navbar from "../shared/components/Navbar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,10 +13,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main>
-      <RootNav />
+    <>
+      <Navbar logoLinkPath="/" />
+      <main>
         {children}
+      </main>
       <Footer />
-    </main>    
+    </>    
   );
 }
