@@ -1,9 +1,10 @@
 
 import { collection, query, where, getDocs } from "firebase/firestore";
-import bcrypt from "bcryptjs";
+// import bcrypt from "bcryptjs";
 
 import { db } from "@/firebase/firebaseConfig";
 import { ICompanyDataPayload } from "@/app/shared/utils/types";
+import bcrypt from "bcryptjs";
 
 interface IFindCompany {
   isFound: boolean;
@@ -37,7 +38,7 @@ const findCompanyByEmailAndPassword = async (email: string, password: string): P
     if (!companyData.password) {
       throw new Error("Password not found in the company document.");
     }
-
+    
     const isPasswordMatch = await bcrypt.compare(password, companyData.password);
 
     if (isPasswordMatch) {
