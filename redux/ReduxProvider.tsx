@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
 "use client";
 import { ReactNode } from 'react';
 import { Provider } from 'react-redux';
@@ -10,12 +9,12 @@ interface ReduxProviderProps {
 }
 
 const ReduxProvider: React.FC<ReduxProviderProps> = ({ children }) => {
- 
   return (
-  <Provider store={store}>
+    <Provider store={store}>
       {children}
       <ToastContainer />
-  </Provider>);
+    </Provider>
+  );
 };
 
 export default ReduxProvider;
