@@ -1,4 +1,4 @@
-// 'use client'
+'use client'
 import { useState } from "react";
 import { auth, db } from "@/firebase/firebaseConfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
