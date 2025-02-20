@@ -7,7 +7,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { FirebaseError } from "firebase/app";
 import findCompanyByEmailAndPassword from "../utils/findCompany";
 import { hashPassword } from "../utils/encryptPassword";
-import { showToast } from "@/app/shared/utils/showToast";
+// import { showToast } from "@/app/shared/utils/showToast";
 
 
 
@@ -32,12 +32,12 @@ export default function useRegisterCompany() {
       const { isFound, error } = await findCompanyByEmailAndPassword(email, password);
     
       if(isFound && !error) {
-        showToast('User already exists.', 'error');
+        // showToast('User already exists.', 'error');
         throw new Error("User already exists");
       }
       
       if(error) {
-        showToast('Error while fetching user.', 'error');
+        // showToast('Error while fetching user.', 'error');
         throw new Error("Error");
       }
 
@@ -59,19 +59,19 @@ export default function useRegisterCompany() {
       createdAt: new Date().toISOString(),
     });
     
-    showToast('Company registered successfully', 'success');
+    // showToast('Company registered successfully', 'success');
     router.push("/home");
 
   } catch (err: unknown ) {
     if (err instanceof FirebaseError) {
       // setError(err.message || "An error occurred while registering the user.");
-      showToast((err.message || 'An error occurred while registering the user.'), 'error');
+      // showToast((err.message || 'An error occurred while registering the user.'), 'error');
     } else if (err instanceof Error) {
       // setError(err.message);
-      showToast(err.message, 'error');
+      // showToast(err.message, 'error');
     } else {
       // setError("An unknown error occurred.");
-      showToast('An unknown error occurred.', 'error');
+      // showToast('An unknown error occurred.', 'error');
     }
   } finally {
     setLoading(false);
