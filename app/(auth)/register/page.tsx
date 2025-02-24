@@ -1,5 +1,4 @@
 'use client'
-import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { validateSignupForm } from '../utils/signupValidation'
 import RegisterForm from '../components/RegisterForm';
@@ -7,7 +6,6 @@ import useRegisterCompany from '../hooks/useRegisterCompany';
 
 
 export default function Register() {
-  const router = useRouter();
   const [userCredentials, setUserCredentials] = useState({name: '', email: '', password: '', confirmPassword: '', size: ''});
   const [errorMessage, setErrorMessage] = useState('');
   const {registerCompany, loading} = useRegisterCompany();
@@ -30,7 +28,6 @@ export default function Register() {
   return (
     <RegisterForm
       errorMessage={errorMessage}
-      router={router}
       handleSetUserCredentials={handleSetUserCredentials}
       handleSubmit={handleSubmit}
       loading={loading}

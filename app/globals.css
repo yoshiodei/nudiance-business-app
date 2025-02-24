@@ -7,6 +7,7 @@
   --foreground: #171717;
 }
 
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -18,4 +19,44 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* loader */
+.loader{
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+
+.loader-quart-1{
+  border-radius: 50px;
+  border: 3px solid rgba(255,255,255,0.5);
+  /* border: 3px solid rgb(179, 179, 179); */
+}
+
+.loader-quart-1:after{
+  content: '';
+  position: absolute;
+  top: -2px; left: -2.5px; 
+  width: 28px;
+  height: 28px;
+  border: 3px solid transparent;
+  border-top-color: #fff;
+  /* border-top-color: red; */
+  border-radius: 50px;
+  
+  -webkit-animation: rotation 1s linear infinite;
+  animation: rotation 1s linear infinite;
+}
+
+@-webkit-keyframes rotation{
+  0% { -webkit-transform: rotate(0deg); -ms-transform: rotate(0deg); transform: rotate(0deg); }
+  100%{ -webkit-transform: rotate(360deg); -ms-transform: rotate(360deg); transform: rotate(360deg); }
+}
+
+@keyframes rotation{
+  0% { -webkit-transform: rotate(0deg); -ms-transform: rotate(0deg); transform: rotate(0deg); }
+  100%{ -webkit-transform: rotate(360deg); -ms-transform: rotate(360deg); transform: rotate(360deg); }
 }

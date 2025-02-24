@@ -1,5 +1,6 @@
+'use client'
 import Loader from '@/app/shared/components/Loader';
-import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
+import { useRouter } from 'next/navigation';
 import React from 'react'
 
 interface ISignupFormProps  {
@@ -7,8 +8,9 @@ interface ISignupFormProps  {
   errorMessage: string;
   loading: boolean;
   handleSubmit: () => Promise<void>;
-  router: AppRouterInstance;
 }
+
+
 
 export default function RegisterForm(
     { 
@@ -16,9 +18,11 @@ export default function RegisterForm(
       errorMessage,
       loading,
       handleSubmit,
-      router
     } : ISignupFormProps 
 ) {
+
+  const router = useRouter();
+
   return (
     <div className="min-h-[80vh]">
         <div className="flex justify-center">
@@ -95,7 +99,13 @@ export default function RegisterForm(
                 </div>
                 <div className="flex justify-center">
                   <h6 className="2xl:text-base xl:text-base text-[0.9em]">
-                    Already have an account? <button onClick={() => router.push('/Login') } className="hover:underline text-blue-400 text-primary font-semibold">Login</button>
+                    Already have an account? 
+                    <button 
+                      onClick={() => router.push('/login') } 
+                      className="hover:underline text-blue-400 text-primary font-semibold"
+                    >
+                      Login
+                    </button>
                   </h6>
                 </div>
               </div>
