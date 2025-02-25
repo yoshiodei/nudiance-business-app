@@ -14,7 +14,7 @@ export default function PostCard({ jobData }: { jobData: IJobPost }) {
       onClick={() => router.push(`/posting/${jobData.id}`)} 
       className="p-3 bg-white border border-slate-300 rounded h-auto hover:bg-slate-50"
     >
-      <div className="flex gap-x-3">
+      <div className="flex gap-x-3 h-full">
         <div>
           <div className="flex justify-center items-center w-[45px] h-[45px] overflow-hidden rounded-full bg-slate-200 border border-slate-400">
             <FaUserTie className="text-[1.4em] text-slate-400" />

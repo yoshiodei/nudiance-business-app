@@ -1,11 +1,13 @@
+'use client'
 import React, { useEffect, useState } from 'react'
 import { getJobList } from '../utils/getJobList';
 import { useRouter } from 'next/navigation';
 import PostCard from '@/app/(pages)/components/PostCard';
+import { IJobPost } from '@/app/shared/utils/types'
 
 export default function AllPostTab() {
 
-  const [jobListData, setJobListData] = useState<import('@/app/shared/utils/types').IJobPost[{}]>([]);
+  const [jobListData, setJobListData] = useState<IJobPost[]>([]);
   const [search, setSearch] = useState<string>('');  
   const [loading, setLoading] = useState(false);
 
@@ -56,12 +58,6 @@ export default function AllPostTab() {
           (
             <div>
               <h5 className="text-[1.5em] text-slate-500 px-5">This list is empty</h5>
-              {/* <button 
-                onClick={() => router.push('/new-post')}
-                className="h-[2.4em] rounded 2xl:w-[120px] xl:w-[120px] w-full bg-primary text-white font-bold"
-              >
-                + New Post
-              </button> */}
             </div>
           )
           }

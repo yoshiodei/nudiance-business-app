@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/store';
+import TabContainer from './components/TabContainer';
 
 export default function Home() {
 
@@ -115,7 +116,7 @@ export default function Home() {
 
                   <div className="h-[1px] w-full bg-slate-400 my-4" />
 
-                  {/* <TabContainer tab={tab} /> */}
+                  <TabContainer tab={tab} />
 
                 </div>
               </div>
