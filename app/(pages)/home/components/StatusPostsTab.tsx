@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { IJobPost } from '@/app/shared/utils/types';
-import PostCard from '@/app/(pages)/components/PostCard';
+import PostCard from '@/app/shared/components/PostCard';
 import { getJobListByStatus } from '../utils/getJobListByStatus';
 
 export default function StatusPostsTab({ status }: { status: string }) {

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { getJobList } from '../utils/getJobList';
 import { useRouter } from 'next/navigation';
-import PostCard from '@/app/(pages)/components/PostCard';
+import PostCard from '@/app/shared/components/PostCard';
 import { IJobPost } from '@/app/shared/utils/types'
 
 export default function AllPostTab() {

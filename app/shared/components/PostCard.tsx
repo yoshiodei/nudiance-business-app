@@ -1,6 +1,6 @@
 import { useRouter } from 'next/navigation'
 import React from 'react'
-import { IJobPost } from '../../shared/utils/types';
+import { IJobPost } from '../utils/types';
 import { FaUserTie } from "react-icons/fa";
 
 export default function PostCard({ jobData }: { jobData: IJobPost }) {
