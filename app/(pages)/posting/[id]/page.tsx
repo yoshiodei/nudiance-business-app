@@ -1,4 +1,5 @@
 'use client'
+import { FaTrash } from "react-icons/fa";
 // import PostCard from '@/app/components/PostCard';
 import { useParams, useRouter } from 'next/navigation';
 import { doc, getDoc } from "firebase/firestore";
@@ -8,6 +9,7 @@ import { FirebaseError } from "firebase/app";
 import { showToast } from '@/app/shared/utils/showToast';
 import { IJobPost } from '@/app/shared/utils/types';
 import DisplaySimilarPostings from '../components/DisplaySimilarPostings';
+import EditPostModal from '../components/EditPostModal';
 // import DeletePostModal from '../components/DeletePostModal';
 
 export default function Posting() {
@@ -15,6 +17,7 @@ export default function Posting() {
   const params = useParams();
 
   const [id, setId] = useState<string | null>(null);
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     if (params?.id) {
@@ -82,11 +85,19 @@ export default function Posting() {
   }, [id]);
 
   if (loading) {
-    return <h5>Loading...</h5>;
+    return (
+      <div className="h-[80vh] p-5">
+          <h5 className="text-[1.3em] text-slate-200">...Loading</h5>
+      </div>
+    );
   }
 
   if (!jobPostData) {
-    return <h5>This post does not exist</h5>;
+    return (
+      <div className="h-[80vh] p-5">
+          <h5 className="text-[1.3em] text-slate-200">This post does not exist</h5>
+      </div>
+    );
   }
 
   return (
@@ -183,7 +194,29 @@ export default function Posting() {
             <div className="h-[1px] bg-slate-200 my-5" />
             <div className="flex 2xl:flex-row xl:flex-row flex-col 2xl:justify-end xl:justify-end 2xl:gap-3 xl:gap-3 gap-2">
               <button onClick={() => router.push(`/edit-post/${id}`)} className="rounded 2xl:p-2 xl:p-2 p-1 border border-slate-300 text-slate-400 bg-white 2xl:w-[100px] xl:w-[100px] w-full">Edit</button>    
+              <button onClick={() => setOpenModal(true)} className="rounded 2xl:p-2 xl:p-2 p-1 border border-slate-300 text-slate-400 bg-white 2xl:w-[100px] xl:w-[100px] w-full">Modal</button>    
               {/* <DeletePostModal id={id} />    */}
+              
+              <EditPostModal openModal={openModal} onClose={() => setOpenModal(false)}>
+                <div className="text-center w-56">
+                <FaTrash size={56} className="mx-auto text-red-500" />
+                <div className="mx-auto my-4 w-48">
+                    <h3 className="text-lg font-black text-gray-800">Confirm Delete</h3>
+                    <p className="text-sm text-gray-500">
+                    Are you sure you want to delete this item?
+                    </p>
+                </div>
+                <div className="flex gap-4">
+                    <button className="btn btn-danger w-full">Delete</button>
+                    <button
+                    className="btn btn-light w-full"
+                    onClick={() => setOpenModal(false)}
+                    >
+                    Cancel
+                    </button>
+                </div>
+                </div>
+              </EditPostModal>
             </div>
           </div>
           
