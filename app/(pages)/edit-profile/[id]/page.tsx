@@ -125,7 +125,7 @@ export default function EditProfile() {
   
   return (
     <div className="min-h-[80vh] flex justify-center  bg-slate-50">
-      <div className="h-auto w-full">
+      <div className="h-auto w-full 2xl:p-0 xl:p-0 p-5">
         <div className="h-auto w-full flex justify-center">
           <div className="2xl:w-[1200px] xl:w-[1200px] w-screen h-full">
             <div className="w-full p-2">
@@ -139,7 +139,7 @@ export default function EditProfile() {
                   </button>    
                 </div>
 
-                <div className="flex gap-[80px]">
+                <div className="flex gap-[80px] 2xl:flex-row xl:flex-col flex-col">
                     <div className="flex 2xl:flex-row xl:flex-row flex-col 2xl:justify-start xl:justify-start justify-center 2xl:items-end xl:items-end items-center 2xl:gap-5 xl:gap-5 gap-3 mb-5">
                       <div className="border-2 p-1 border-slate-300 rounded border-dashed w-[180px] h-[180px]">
                         <div className="bg-slate-300 rounded h-full w-full">

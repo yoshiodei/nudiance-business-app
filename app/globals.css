@@ -43,6 +43,14 @@ body {
   background-color: white; 
 }
 
+.custom-index {
+  z-index: 4 !important;
+}
+
+.custom-index-modal {
+  z-index: 10 !important;
+}
+
 /* loader */
 .loader{
   width: 28px;
