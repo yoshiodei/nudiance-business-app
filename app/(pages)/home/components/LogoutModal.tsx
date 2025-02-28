@@ -23,7 +23,7 @@ export default function LogoutModal() {
       </button>
 
       <Modal openModal={openModal} onClose={() => setOpenModal(false)}>
-        <div className="text-center max-w-[600px] p-5">
+        <div className="text-center max-w-[600px] p-5 z-[10]">
           <IoIosWarning size={35} className="mx-auto text-red-500" />
           <div className="mx-auto my-4">
             <h3 className="text-lg font-black text-gray-600">Logout</h3>

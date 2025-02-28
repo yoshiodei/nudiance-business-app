@@ -64,7 +64,7 @@ export default function Home() {
                       <LogoutModal />
                     </div>
                   </div>  
-                  <div className="absolute 2xl:h-[200px] xl:h-[200px] h-[120px] 2xl:w-[200px] xl:w-[200px] w-[120px] rounded p-4 border border-slate-200 bg-white 2xl:bottom-[20px] xl:bottom-[20px] 2xl:left-[20px] xl:left-[20px] left-1/2 2xl:top-[unset] xl:top-[unset] top-[-60px] 2xl:transform-none xl:transform-none transform -translate-x-1/2 overflow-hidden">
+                  <div className="z-10 absolute 2xl:h-[200px] xl:h-[200px] h-[120px] 2xl:w-[200px] xl:w-[200px] w-[120px] rounded p-4 border border-slate-200 bg-white 2xl:bottom-[20px] xl:bottom-[20px] 2xl:left-[20px] xl:left-[20px] left-1/2 2xl:top-[unset] xl:top-[unset] top-[-60px] 2xl:transform-none xl:transform-none transform -translate-x-1/2 overflow-hidden">
                     <Image 
                       className="w-full h-full object-cover"
                       width={1500}
@@ -84,19 +84,19 @@ export default function Home() {
                     <div className="flex gap-x-5">
                       <button 
                         onClick={() => setTab('all-post')}
-                        className={`p-2 rounded hover:bg-primary hover:text-white ${tab === 'all-post' ? 'bg-primary text-white' : 'text-slate-500 bg-slate-50'} w-[150px] text-nowrap transition-all`}
+                        className={`p-2 rounded ${tab === 'all-post' ? 'bg-primary text-white' : 'hover:bg-slate-200 text-slate-500 bg-slate-50'} w-[150px] text-nowrap transition-all`}
                       >
                         <h5 className="font-bold transition-all">Job Postings</h5>
                       </button>
                       <button
                         onClick={() => setTab('active-post')}
-                        className={`p-2 rounded hover:bg-primary hover:text-white ${tab === 'active-post' ? 'bg-primary text-white' : 'text-slate-500 bg-slate-50'} w-[150px] text-nowrap transition-all`}
+                        className={`p-2 rounded ${tab === 'active-post' ? 'bg-primary text-white' : 'hover:bg-slate-200 text-slate-500 bg-slate-50'} w-[150px] text-nowrap transition-all`}
                       >
                         <h5 className="font-bold transition-all">Active Posts</h5>
                       </button>
                       <button
                         onClick={() => setTab('inactive-post')}
-                        className={`p-2 rounded hover:bg-primary hover:text-white ${tab === 'inactive-post' ? 'bg-primary text-white' : 'text-slate-500 bg-slate-50'} w-[150px] text-nowrap transition-all`}
+                        className={`p-2 rounded ${tab === 'inactive-post' ? 'bg-primary text-white' : 'hover:bg-slate-200 text-slate-500 bg-slate-50'} w-[150px] text-nowrap transition-all`}
                       >
                         <h5 className="font-bold transition-all">Inactive Posts</h5>
                       </button>

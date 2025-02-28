@@ -13,7 +13,7 @@ export default function Modal({ openModal, onClose, children }: IModal) {
     <div
       onClick={onClose}
       className={`
-        fixed inset-0 flex justify-center items-center transition-colors
+        fixed inset-0 z-60 flex justify-center items-center transition-colors
         ${openModal ? "visible bg-black/20" : "invisible"}
       `}
     >

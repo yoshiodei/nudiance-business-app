@@ -125,7 +125,7 @@ export default function NewPost() {
 
   return (
     <div className="min-h-[80vh] flex justify-center  bg-slate-50">
-      <div className="h-auto w-full">
+      <div className="h-auto w-full 2xl:p-0 xl:p-0 p-5">
         <div className="h-auto w-full flex justify-center">
           <div className="2xl:w-[1200px] xl:w-[1200px] w-screen h-full 2xl:p-[0px] xl:p-[0px] p-2">
             <div className="flex justify-between items-center">
@@ -354,7 +354,7 @@ export default function NewPost() {
               </div>    
             </div>
             <div className="my-5">
-              <button onClick={handleSubmit} className="font-bold text-white py-2 px-5 rounded bg-primary w-[150px]">
+              <button onClick={handleSubmit} className="font-bold text-white py-2 px-5 rounded bg-primary 2xl:w-[150px] xl:w-[150px] w-full">
                 Submit
               </button>    
             </div>

@@ -116,7 +116,7 @@ export default function Posting() {
 
   return (
     <div className="min-h-[80vh] flex justify-center bg-slate-50">
-      <div className="2xl:w-[1200px] xl:w-[1200px] w-auto min-h-[200px] flex 2xl:flex-row xl:flex-row flex-col gap-5 p-5">
+      <div className="2xl:w-[1200px] xl:w-[1200px] w-[90vw] min-h-[200px] flex 2xl:flex-row xl:flex-row flex-col gap-5 py-5 2xl:p-5 xl:p-5">
         <main className="2xl:p-5 xl:p-5 p-2 h-auto flex-1 border border-slate-300 rounded bg-white">
           <div className="rounded border border-slate-300 2xl:p-5 xl:p-5 p-2 bg-slate-100 mb-5 flex justify-between items-center">
             <h5 className="font-bold 2xl:text-xl xl:text-xl text-base text-primary">Job Posting</h5>
@@ -242,7 +242,7 @@ export default function Posting() {
           </div>)}
 
         </main>
-        <div className="w-[300px]">
+        <div className="2xl:w-[300px] xl:w-[300px] w-[90vw]">
           <div className="2xl:p-5 xl:p-5 p-2 h-auto w-full border border-slate-300 rounded bg-white">
             <div>
               <h6 className="text-lg font-semibold">Other postings</h6>

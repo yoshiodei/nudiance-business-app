@@ -188,7 +188,7 @@ export default function EditPost() {
 
   return (
       <div className="min-h-[80vh] flex justify-center  bg-slate-50">
-        <div className="h-auto w-full">
+        <div className="h-auto w-full 2xl:p-0 xl:p-0 p-5">
           <div className="h-auto w-full flex justify-center">
             <div className="2xl:w-[1200px] xl:w-[1200px] w-screen h-full 2xl:p-[0px] xl:p-[0px] p-2">
               <div className="flex justify-between items-center">
@@ -334,13 +334,13 @@ export default function EditPost() {
                   <div className="h-[2.5em] flex gap-[15px]">
                     <button 
                       onClick={() => setSelectedStatus('active')}
-                      className={`rounded px-[60px] py-[5px] hover:bg-primary ${selectedStatus === "active" ? "bg-primary" : "bg-slate-400"} text-white h-full`}
+                      className={`rounded 2xl:px-[60px] xl:px-[60px] px-[30px] py-[5px] hover:bg-primary ${selectedStatus === "active" ? "bg-primary" : "bg-slate-400"} text-white h-full`}
                     >
                       Active
                     </button>
                     <button
                       onClick={() => setSelectedStatus('inactive')}
-                      className={`rounded px-[60px] py-[5px] hover:bg-red-400 ${selectedStatus === "inactive" ? "bg-red-400" : "bg-slate-400"} text-white h-full`}
+                      className={`rounded 2xl:px-[60px] xl:px-[60px] px-[30px] py-[5px] hover:bg-red-400 ${selectedStatus === "inactive" ? "bg-red-400" : "bg-slate-400"} text-white h-full`}
                     >
                       Inactive
                     </button>
@@ -435,7 +435,7 @@ export default function EditPost() {
                 </div>    
               </div>
               <div className="my-5">
-                <button onClick={handleSubmit} className="w-[150px] font-bold text-white py-2 px-5 rounded bg-primary">
+                <button onClick={handleSubmit} className="2xl:w-[150px] xl:w-[150px] w-full font-bold text-white py-2 px-5 rounded bg-primary">
                   {isLoading ? <Loader /> : "Submit"}
                 </button>    
               </div>
