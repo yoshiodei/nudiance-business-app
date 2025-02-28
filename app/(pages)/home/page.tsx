@@ -8,26 +8,15 @@ import React, { useState, useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { RootState } from '@/redux/store';
 import TabContainer from './components/TabContainer';
+import LogoutModal from './components/LogoutModal';
 
 export default function Home() {
-
-  // const initialState = {
-  //   password: '',
-  //   size: '',
-  //   uid: '',
-  //   name: '',
-  //   jobListing: [],
-  //   email: '',
-  //   image: '',
-  //   wallpaper: '',
-  // }
 
   const [companyData, setCompanyData] = useState<ICompanyDataPayload | null>(null);
   const { company } = useSelector((state: RootState) => state.company);
   const [tab, setTab] = useState<string>('all-post');
   const router = useRouter();
 
-//   console.log('companyInfo', company);
   console.log('companyData', companyData);
   
   useEffect(() => {
@@ -72,7 +61,7 @@ export default function Home() {
                       >
                         Edit Profile
                       </button>
-                      {/* <LogoutModal /> */}
+                      <LogoutModal />
                     </div>
                   </div>  
                   <div className="absolute 2xl:h-[200px] xl:h-[200px] h-[120px] 2xl:w-[200px] xl:w-[200px] w-[120px] rounded p-4 border border-slate-200 bg-white 2xl:bottom-[20px] xl:bottom-[20px] 2xl:left-[20px] xl:left-[20px] left-1/2 2xl:top-[unset] xl:top-[unset] top-[-60px] 2xl:transform-none xl:transform-none transform -translate-x-1/2 overflow-hidden">
