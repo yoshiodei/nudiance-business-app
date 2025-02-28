@@ -41,7 +41,7 @@ const editPostValidation = (jobObject: IEditPostJobList) => {
       return {error: true, message: "Salary entered is not a number"}
     }
 
-    if(salaryLowerRange > salaryUpperRange) {
+    if(Number(salaryLowerRange) > Number(salaryUpperRange)) {
       return {error: true, message: "Salary lower range must be less than higher range"}
     }
 

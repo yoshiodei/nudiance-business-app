@@ -10,6 +10,8 @@ import { showToast } from '@/app/shared/utils/showToast';
 import { IJobPost } from '@/app/shared/utils/types';
 import DisplaySimilarPostings from '../components/DisplaySimilarPostings';
 import EditPostModal from '../components/EditPostModal';
+import useDeletePost from "../hooks/useDeletePost";
+import Loader from "@/app/shared/components/Loader";
 // import DeletePostModal from '../components/DeletePostModal';
 
 export default function Posting() {
@@ -18,6 +20,8 @@ export default function Posting() {
 
   const [id, setId] = useState<string | null>(null);
   const [openModal, setOpenModal] = useState(false);
+
+  const { deletePost, loading: deleting } = useDeletePost();
 
   useEffect(() => {
     if (params?.id) {
@@ -56,6 +60,16 @@ export default function Posting() {
 
   const [jobPostData, setJobPostData] = useState<IJobPost>(initialState);
   const [loading, setLoading] = useState(true);
+
+  const handleDelete = async () => {
+    if(id){
+      await deletePost(id);
+      setOpenModal(false);
+    }
+    else {
+      showToast('Post','error')
+    }
+  }
 
   useEffect(() => {
     if (!id) return;
@@ -193,26 +207,27 @@ export default function Posting() {
           <div>
             <div className="h-[1px] bg-slate-200 my-5" />
             <div className="flex 2xl:flex-row xl:flex-row flex-col 2xl:justify-end xl:justify-end 2xl:gap-3 xl:gap-3 gap-2">
-              <button onClick={() => router.push(`/edit-post/${id}`)} className="rounded 2xl:p-2 xl:p-2 p-1 border border-slate-300 text-slate-400 bg-white 2xl:w-[100px] xl:w-[100px] w-full">Edit</button>    
-              <button onClick={() => setOpenModal(true)} className="rounded 2xl:p-2 xl:p-2 p-1 border border-slate-300 text-slate-400 bg-white 2xl:w-[100px] xl:w-[100px] w-full">Modal</button>    
-              {/* <DeletePostModal id={id} />    */}
+              <button onClick={() => router.push(`/edit-post/${id}`)} className="rounded 2xl:p-2 xl:p-2 p-1 border border-slate-300 text-bold hover:text-white hover:bg-slate-300 text-slate-400 bg-white 2xl:w-[100px] xl:w-[100px] w-full transition-all">Edit</button>    
+              <button onClick={() => setOpenModal(true)} className="rounded 2xl:p-2 xl:p-2 p-1 border border-red-500 hover:bg-red-600 text-white text-bold bg-red-500 2xl:w-[130px] xl:w-[130px] w-full">Delete Post</button>    
               
               <EditPostModal openModal={openModal} onClose={() => setOpenModal(false)}>
-                <div className="text-center w-56">
-                <FaTrash size={56} className="mx-auto text-red-500" />
-                <div className="mx-auto my-4 w-48">
-                    <h3 className="text-lg font-black text-gray-800">Confirm Delete</h3>
-                    <p className="text-sm text-gray-500">
+                <div className="text-center max-w-[600px] p-5">
+                <FaTrash size={35} className="mx-auto text-red-500" />
+                <div className="mx-auto my-4">
+                    <h3 className="text-lg font-black text-gray-600">Confirm Delete</h3>
+                    <p className="text-[1.3em] text-gray-500">
                     Are you sure you want to delete this item?
                     </p>
                 </div>
-                <div className="flex gap-4">
-                    <button className="btn btn-danger w-full">Delete</button>
+                <div className="flex gap-4 justify-center">
+                    <button onClick={() => handleDelete() } className="bg-red-500 hover:bg-red-600 rounded px-3 py-2 text-white w-[130px]">
+                      { deleting ? <Loader /> : 'Delete' }
+                    </button>
                     <button
-                    className="btn btn-light w-full"
-                    onClick={() => setOpenModal(false)}
+                      className="border border-slate-400 hover:bg-slate-400 hover:text-white rounded px-3 py-2 text-slate-700 w-[130px]"
+                      onClick={() => setOpenModal(false)}
                     >
-                    Cancel
+                      Cancel
                     </button>
                 </div>
                 </div>

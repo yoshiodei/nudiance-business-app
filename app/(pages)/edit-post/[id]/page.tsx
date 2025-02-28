@@ -435,7 +435,7 @@ export default function EditPost() {
                 </div>    
               </div>
               <div className="my-5">
-                <button onClick={handleSubmit} className="font-bold text-white py-2 px-5 rounded bg-primary">
+                <button onClick={handleSubmit} className="w-[150px] font-bold text-white py-2 px-5 rounded bg-primary">
                   {isLoading ? <Loader /> : "Submit"}
                 </button>    
               </div>

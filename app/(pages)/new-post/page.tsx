@@ -354,7 +354,7 @@ export default function NewPost() {
               </div>    
             </div>
             <div className="my-5">
-              <button onClick={handleSubmit} className="font-bold text-white py-2 px-5 rounded bg-primary">
+              <button onClick={handleSubmit} className="font-bold text-white py-2 px-5 rounded bg-primary w-[150px]">
                 Submit
               </button>    
             </div>
