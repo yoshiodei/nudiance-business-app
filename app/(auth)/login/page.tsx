@@ -36,8 +36,8 @@ export default function Login() {
             <div>
                 <label className="font-bold mb-3 text-primary 2xl:text-base xl:text-base text-[0.9em]">Email</label>
                 <input
-                  onChange={(e) => setLoginUserData({ ...loginUserData, [e.target.name]: e.target.value })}
                   name="email"
+                  onChange={(e) => setLoginUserData({ ...loginUserData, [e.target.name]: e.target.value })}
                   value={loginUserData.email}
                   className="h-[2.3em] w-full border border-slate-300 rounded bg-white px-5"
                   placeholder="Please enter email"
@@ -46,8 +46,8 @@ export default function Login() {
             <div>
                 <label className="font-bold mb-3 text-primary 2xl:text-base xl:text-base text-[0.9em]">Password</label>
                 <input
-                  onChange={(e) => setLoginUserData({ ...loginUserData, [e.target.name]: e.target.value })}
                   name="password"
+                  onChange={(e) => setLoginUserData({ ...loginUserData, [e.target.name]: e.target.value })}
                   value={loginUserData.password}
                   className="h-[2.3em] w-full border border-slate-300 rounded bg-white px-5"
                   placeholder="Please enter password"

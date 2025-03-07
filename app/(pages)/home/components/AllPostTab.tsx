@@ -4,8 +4,11 @@ import { getJobList } from '../utils/getJobList';
 import { useRouter } from 'next/navigation';
 import PostCard from '@/app/shared/components/PostCard';
 import { IJobPost } from '@/app/shared/utils/types'
+import { useSelector } from 'react-redux';
+import { RootState } from '@/redux/store';
 
 export default function AllPostTab() {
+  const uid = useSelector((state: RootState ) => state.company.company.uid);
 
   const [jobListData, setJobListData] = useState<IJobPost[]>([]);
   const [search, setSearch] = useState<string>('');  
@@ -19,7 +22,7 @@ export default function AllPostTab() {
 
   const loadJobList = async () => {
     setLoading(true);
-    await getJobList(setJobListData);
+    await getJobList(setJobListData, uid);
     setLoading(false);
   }
 

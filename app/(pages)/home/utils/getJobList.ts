@@ -1,13 +1,14 @@
 import { showToast } from "@/app/shared/utils/showToast";
 import { db } from "@/firebase/firebaseConfig";
 import { FirebaseError } from "firebase/app";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, where, query } from "firebase/firestore";
 import { IJobPost } from '@/app/shared/utils/types';
 
-export const getJobList = async (setJobListData: React.Dispatch<React.SetStateAction<IJobPost[]>>) => {
+export const getJobList = async (setJobListData: React.Dispatch<React.SetStateAction<IJobPost[]>>, uid: string) => {
     try{
         
-        const querySnapshot = await getDocs(collection(db, "jobList"));
+        const q = query(collection(db, "jobList"), where("vendor.uid", "==", uid));
+        const querySnapshot = await getDocs(q);
         const jobList:IJobPost[] = [];
         querySnapshot.forEach((doc) => {
           console.log(doc.id, " => ", doc.data());

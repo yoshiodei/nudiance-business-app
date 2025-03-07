@@ -4,16 +4,16 @@ import { FirebaseError } from "firebase/app";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { IJobPost } from '@/app/shared/utils/types';
 
-export const getJobListByStatus = async (setJobListData: React.Dispatch<React.SetStateAction<IJobPost[]>>, status: string) => {
+export const getJobListByStatus = async (setJobListData: React.Dispatch<React.SetStateAction<IJobPost[]>>, status: string, uid: string) => {
     try{
 
-        const q = query(collection(db, "jobList"), where("status", "==", status));
+        const q = query(collection(db, "jobList"), where("vendor.uid", "==", uid));
 
         const querySnapshot = await getDocs(q);
         const jobList:IJobPost[] = [];
         querySnapshot.forEach((doc) => {
             console.log(doc.id, " => ", doc.data());
-            const jodData = {
+            const jobData = {
               id: '',
               name: doc.data().name,
               phoneNumber: doc.data().phoneNumber,
@@ -39,7 +39,10 @@ export const getJobListByStatus = async (setJobListData: React.Dispatch<React.Se
                 uid: doc.data().vendor.uid,
               }
             };
-            jobList.push({...jodData, id: doc.id});
+
+            if(jobData.status === status){
+             jobList.push({...jobData, id: doc.id});
+            }
         });  
         setJobListData(jobList);
     }

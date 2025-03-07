@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { IJobPost } from '@/app/shared/utils/types';
 import PostCard from '@/app/shared/components/PostCard';
 import { getJobListByStatus } from '../utils/getJobListByStatus';
+import { RootState } from '@/redux/store';
+import { useSelector } from 'react-redux';
 
 export default function StatusPostsTab({ status }: { status: string }) {
-
+  const uid = useSelector((state: RootState ) => state.company.company.uid);
+  
   const [jobListData, setJobListData] = useState<IJobPost[]>([]);
     const [search, setSearch] = useState<string>('');  
     const [loading, setLoading] = useState(false);
@@ -15,7 +18,7 @@ export default function StatusPostsTab({ status }: { status: string }) {
   
     const loadJobList = async () => {
       setLoading(true);
-      await getJobListByStatus(setJobListData, status);
+      await getJobListByStatus(setJobListData, status, uid);
       setLoading(false);
     }
   

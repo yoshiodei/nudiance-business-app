@@ -8,6 +8,9 @@ import { FirebaseError } from "firebase/app";
 import findCompanyByEmailAndPassword from "../utils/findCompany";
 import { hashPassword } from "../utils/encryptPassword";
 import { showToast } from "@/app/shared/utils/showToast";
+import { setCompany } from "@/redux/slices/companySlice";
+import { useDispatch } from "react-redux";
+
 
 
 
@@ -20,6 +23,7 @@ interface IcompanyObject {
 }
 
 export default function useRegisterCompany() {
+  const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
@@ -58,6 +62,12 @@ export default function useRegisterCompany() {
       ...newCompanyData,
       createdAt: new Date().toISOString(),
     });
+
+    dispatch(setCompany({
+      image: '',
+      wallpaper: '',
+      ...newCompanyData
+    }));
     
     showToast('Company registered successfully', 'success');
     router.push("/home");
